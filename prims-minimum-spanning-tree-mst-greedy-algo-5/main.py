@@ -1,5 +1,3 @@
-# User function Template for python3
-
 def print_adj(adj):
     print(adj)
     for k, v in enumerate(adj):
@@ -10,10 +8,9 @@ def print_adj(adj):
 class Solution:
     # Function to construct and return cost of MST for a graph
     # represented using adjacency matrix representation
-    '''
-    V: nodes in graph
-    adj: adjacency list
-    '''
+    #
+    # V: nodes in graph
+    # adj: adjacency list
     def spanningTree(self, V, adj):
         # print(adj)
         key = [float('inf')] * V
@@ -40,12 +37,12 @@ class Solution:
 
 # naive solution
 class SolutionV1:
+
     # Function to construct and return cost of MST for a graph
     # represented using adjacency matrix representation
-    '''
-    V: nodes in graph
-    adj: adjacency list
-    '''
+    #
+    # V: nodes in graph
+    # adj: adjacency list
     def spanningTree(self, V, adj):
         # print(adj)
         cost = 0
@@ -69,13 +66,8 @@ class SolutionV1:
                     min_node = node
         return (min_weight, min_node)
 
-# {
-#  Driver Code Starts
-# Initial Template for Python 3
 
-
-# Contributed by : Nagendra Jha
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_cases = int(input())
     for cases in range(test_cases):
         V, E = map(int, input().strip().split())
@@ -87,4 +79,3 @@ if __name__ == '__main__':
         ob = Solution()
 
         print(ob.spanningTree(V, adj))
-# } Driver Code Ends
