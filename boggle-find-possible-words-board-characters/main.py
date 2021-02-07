@@ -49,7 +49,6 @@ class Solution:
 
     def get(self, board, pos, default):
         i, k = pos
-
         if i < 0 or k < 0:
             return default
 
