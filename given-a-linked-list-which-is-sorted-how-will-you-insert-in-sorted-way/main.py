@@ -11,8 +11,8 @@ def sortedInsert(head, key):
 
 def sortedInsertV2(head, key):
     insert = Node(key)
-    curr = head
     prev = None
+    curr = head
     while curr != None:
         if insert.data < curr.data:
             break

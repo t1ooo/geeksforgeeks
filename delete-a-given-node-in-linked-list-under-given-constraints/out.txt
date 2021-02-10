@@ -1,0 +1,8 @@
+Given Linked List:
+12 15 10 11 5 6 2 3
+Deleting node 10:
+12 15 11 5 6 2 3
+Deleting first node:
+15 11 5 6 2 3
+Deleting last node:
+15 11 5 6 2
