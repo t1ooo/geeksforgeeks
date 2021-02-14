@@ -21,13 +21,13 @@ def longestSubsequence(a, n):
 
 # O(n log n) with bisect (std::lower_bound in C++)
 def longestSubsequenceV4(a, n):
-    tail = [a[0]]
-    for i in range(1, n):
-        index = bisect.bisect_left(tail, a[i])
+    tail = []
+    for v in a:
+        index = bisect.bisect_left(tail, v)
         if index == len(tail):
-            tail.append(a[i])
+            tail.append(v)
         else:
-            tail[index] = a[i]
+            tail[index] = v
 
     return len(tail)
 
