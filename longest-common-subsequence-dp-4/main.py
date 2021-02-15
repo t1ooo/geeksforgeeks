@@ -64,13 +64,15 @@ def lcsV2(m, n, X, Y):
 
 
 def lcsV1(m, n, X, Y):
-    if m == 0 or n == 0:
-        return 0
-    elif X[m-1] == Y[n-1]:
-        return 1 + lcs(m-1, n-1, X, Y)
-    else:
-        return max(lcs(m-1, n, X, Y), lcs(m, n-1, X, Y))
+    def lcs(m, n, X, Y):
+        if m == 0 or n == 0:
+            return 0
+        elif X[m-1] == Y[n-1]:
+            return 1 + lcs(m-1, n-1, X, Y)
+        else:
+            return max(lcs(m-1, n, X, Y), lcs(m, n-1, X, Y))
 
+    return lcs(m, n, X, Y)
 
 if __name__ == '__main__':
     test_cases = int(input())
