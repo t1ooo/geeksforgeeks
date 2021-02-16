@@ -57,26 +57,6 @@ def equalPartitionV2(N, arr):
     return diff == 0
 
 
-# def equalPartitionV2(N, arr):
-#     def minDiff(arr, n, sum, totalSum, dp):
-#         if dp[n] != -1:
-#             return dp[n]
-
-#         if n == 0:
-#             dp[n] = abs(totalSum - sum - sum)
-#             return dp[n]
-
-#         dp[n] = min(
-#             minDiff(arr, n-1, sum, totalSum, dp[0:]),
-#             minDiff(arr, n-1, sum + arr[n-1], totalSum, dp[0:])
-#         )
-#         return dp[n]
-
-#     dp = [-1] * (N+1)
-#     diff = minDiff(arr, N, 0, sum(arr), dp)
-#     return diff == 0
-
-
 def equalPartitionV1(N, arr):
     def minDiff(arr, n, sum, totalSum):
         if n == 0:
