@@ -1,4 +1,51 @@
+# use recursion + dynamic programming
 def equalPartition(N, arr):
+    def isEqualPartition(arr, n, sum, dp):
+        if sum == 0:
+            return True
+        if n == 0:
+            return False
+
+        if dp[n][sum] != -1:
+            return dp[n][sum]
+
+        dp[n][sum] = (
+            isEqualPartition(arr, n-1, sum, dp) or
+            isEqualPartition(arr, n-1, sum - arr[n-1], dp)
+        )
+        return dp[n][sum]
+
+    sm = sum(arr)
+    if sm % 2 == 1:
+        return False
+    else:
+        sm = sm // 2
+        dp = [[-1] * (sm+1) for _ in range(N+1)]
+        return isEqualPartition(arr, N, sm, dp)
+
+
+# use recursion
+def equalPartitionV5(N, arr):
+    def isEqualPartition(arr, n, sum):
+        if sum == 0:
+            return True
+        if n == 0:
+            return False
+
+        return (
+            isEqualPartition(arr, n-1, sum) or
+            isEqualPartition(arr, n-1, sum - arr[n-1])
+        )
+
+    sm = sum(arr)
+    if sm % 2 == 1:
+        return False
+    else:
+        return isEqualPartition(arr, N, sm//2)
+
+
+# use dynamic programming
+def equalPartitionV4(N, arr):
     sm = sum(arr)
     if sm % 2 == 1:
         return False
@@ -37,6 +84,7 @@ def equalPartitionV3(N, arr):
     return False
 
 
+# use partition a set with min diff problem + dynamic programming
 def equalPartitionV2(N, arr):
     def minDiff(arr, n, sum, totalSum, dp):
         if dp[n][sum] != -1:
@@ -57,6 +105,7 @@ def equalPartitionV2(N, arr):
     return diff == 0
 
 
+# use partition a set with min diff problem
 def equalPartitionV1(N, arr):
     def minDiff(arr, n, sum, totalSum):
         if n == 0:
