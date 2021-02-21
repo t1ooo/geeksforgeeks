@@ -35,18 +35,6 @@ def bubbleSortV1(arr, n):
         # Last elements are already in place
         n -= 1
 
-# def bubbleSort(arr, n):
-#     for i in range(n):
-#         r = n-1
-#         for k in range(i+1, n):
-#             if arr[i] <= arr[k]:
-#                 r = k
-#                 break
-#         # if r != -1:
-#             # arr[i], arr[k] = arr[k], arr[i]
-#         arr[i], arr[k] = arr[k], arr[i]
-
-
 class Solution:
     def bubbleSort(self, arr, n):
         bubbleSort(arr, n)
