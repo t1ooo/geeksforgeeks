@@ -22,9 +22,9 @@ def binaryInsertionSort(arr, n):
         curr = arr[i]
         k = bisect_left(arr, 0, i, curr)
         assert k == bsct.bisect_left(arr, curr, lo=0, hi=i)
-        move(arr, k, i)
-        arr[k] = curr
-
+        if k != i:
+            move(arr, k, i)
+            arr[k] = curr
 
 
 def insertionSortV2(arr, n):
@@ -61,6 +61,6 @@ if __name__ == "__main__":
         res = arr.copy()
         Solution().insertionSort(res, n)
         print(" ".join(map(str, res)))
-        # for _ in range(1000):
-        # res = arr.copy()
-        # Solution().insertionSort(res, n)
+        for _ in range(1000):
+            res = arr.copy()
+            Solution().insertionSort(res, n)
