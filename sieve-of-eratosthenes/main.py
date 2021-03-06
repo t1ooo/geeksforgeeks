@@ -72,7 +72,7 @@ def sieveV3(n):
     return primes
 
 
-# geeksforgeeks.org: Wrong Answer
+# geeksforgeeks.org: Time Limit Exceeded
 def segmentedSieveV1(n):
     def sieve(lo, hi, primes):
         nums = [True for x in range(lo, hi+1)]
@@ -81,7 +81,7 @@ def segmentedSieveV1(n):
             nums[1] = False
 
             p = 2
-            while p*p < hi:
+            while p*p <= hi:
                 if nums[p]:
                     for i in range(p*p, hi+1, p):
                         nums[i] = False
