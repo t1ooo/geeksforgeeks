@@ -1,7 +1,6 @@
 import math
 
 
-# geeksforgeeks.org: Time Limit Exceeded
 def sieveV1(n):
     nums = [True for x in range(n+1)]
     nums[0] = False
@@ -13,8 +12,8 @@ def sieveV1(n):
             nums[i] = False
 
         prev = p
-        for i in range(n+1):
-            if nums[i] and i > p:
+        for i in range(p+1, n+1):
+            if nums[i]:
                 p = i
                 break
 
@@ -22,7 +21,7 @@ def sieveV1(n):
             break
 
     primes = []
-    for i in range(n+1):
+    for i in range(2, n+1):
         if nums[i]:
             primes.append(i)
 
@@ -39,10 +38,13 @@ def sieveV2(n):
         for i in range(p*p, n+1, p):
             nums[i] = False
 
-        for i in range(2, n+1):
-            if nums[i] and i > p:
+        # prev = p
+        for i in range(p+1, n+1):
+            if nums[i]:
                 p = i
                 break
+        
+        # assert prev != p
 
     primes = []
     for i in range(2, n+1):
@@ -68,6 +70,20 @@ def sieveV3(n):
     for i in range(2, n+1):
         if nums[i]:
             primes.append(i)
+
+    return primes
+
+
+def sieveV4(n):
+    nums = [True for x in range(n+1)]
+
+    primes = []
+    for p in range(2, n+1):
+        if nums[p]:
+            primes.append(p)
+
+            for i in range(p, n+1, p):
+                nums[i] = False
 
     return primes
 
@@ -161,7 +177,8 @@ class Solution:
     def sieveOfEratosthenes(self, N):
         # return sieveV1(N)
         # return sieveV2(N)
-        return sieveV3(N)
+        # return sieveV3(N)
+        return sieveV4(N)
         # return segmentedSieveV1(N)
         # return segmentedSieveV2(N)
 
