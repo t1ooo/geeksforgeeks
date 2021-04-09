@@ -30,8 +30,7 @@ def search(text, pattern):
     concat = pattern+"$"+text
     l = len(concat)
     z = zArray(concat)
-    # print(list(concat))
-    # print(list(map(str, z)))
+
     res = []
     for i in range(l):
         if z[i] == len(pattern):
@@ -59,8 +58,7 @@ def searchV2(text, pattern):
     concat = pattern+"$"+text
     l = len(concat)
     z = zArray(concat)
-    # print(list(concat))
-    # print(list(map(str, z)))
+
     res = []
     for i in range(l):
         if z[i] == len(pattern):
