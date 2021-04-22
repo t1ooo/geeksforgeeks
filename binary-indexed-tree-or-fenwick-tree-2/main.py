@@ -4,7 +4,6 @@ def getsum(bittree, i):
     while i > 0:
         res += bittree[i]
         i -= i & (-i)
-        # i = i & (i-1)
 
     return res
 
@@ -14,7 +13,6 @@ def updatebits(bittree, n, i, v):
     while i <= n:
         bittree[i] += v
         i += i & (-i)
-        # i += i & (i-1)
 
 
 def construct(arr, n):
