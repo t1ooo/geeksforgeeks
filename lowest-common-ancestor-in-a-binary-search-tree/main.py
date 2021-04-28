@@ -1,50 +1,8 @@
-# def LCA(root, n1, n2):
-#     def f(node, n1, n2):
-#         if node == None:
-#             return None
-
-#         if node.data == n1:
-#             return node
-
-#         if node.data == n2:
-#             return node
-
-#         l = f(node.left, n1, n2)
-#         r = f(node.right, n1, n2)
-
-#         if l == r and l != None:
-#             return l
-
-#     return f(root, n1, n2)
-
 from collections import deque
 import sys
 
 sys.setrecursionlimit(50000)
 
-# def LCA(root, n1, n2):
-#     def f(node, n1, n2, level):
-#         if node == None:
-#             return None, level
-
-#         if n1 <= node.data and node.data <= n2:
-#             return node, level
-
-#         left, llevel = f(node.left, n1, n2, level+1)
-#         right, rlevel = f(node.right, n1, n2, level+1)
-
-#         if left!= None and llevel < rlevel:
-#             return left, level
-#         else:
-#             return right, level
-
-#     try:
-#         res, _ =  f(root, n1, n2, 0)
-#         if res == None:
-#             res = root
-#         return res
-#     except Exception as e:
-#         print(e)
 
 def LCAv3(root, n1, n2):
     def f(node, n1, n2):
@@ -53,13 +11,13 @@ def LCAv3(root, n1, n2):
 
         if node.data == n1 or node.data == n2:
             return node
-        
+
         left = f(node.left, n1, n2)
         right = f(node.right, n1, n2)
-        
+
         if left != None and right != None:
             return node
-        
+
         if left != None:
             return left
         else:
