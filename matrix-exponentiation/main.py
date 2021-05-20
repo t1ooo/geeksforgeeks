@@ -38,25 +38,48 @@ def multiply(a, b):
             a[i][j] = mul[i][j]
 
 
+# def power(F, n, a, b, c):
+#     M = [[a, b, 1], [1, 0, 0], [0, 0, 1]]
+#     if (n == 1):
+#         return F[0][0] + F[0][1] + c
+
+#     power(F, int(n / 2), a, b, c)
+
+#     multiply(F, F)
+
+#     if (n % 2 != 0):
+#         multiply(F, M)
+
+#     return F[0][0] + F[0][1] + c
+
+
+# def genFibNumV3(a, b, c, n, m):
+#     F = [[a, b, 1], [1, 0, 0], [0, 0, 1]]
+#     r = power(F, n-2, a, b, c) % m
+#     return r
+
+
 def power(F, n, a, b, c):
     M = [[a, b, 1], [1, 0, 0], [0, 0, 1]]
-    if (n == 1):
-        return F[0][0] + F[0][1] + c
+    if n <= 1:
+        return
 
-    power(F, int(n / 2), a, b, c)
+    power(F, n // 2, a, b, c)
 
     multiply(F, F)
 
-    if (n % 2 != 0):
+    if n % 2 != 0:
         multiply(F, M)
-
-    return F[0][0] + F[0][1] + c
 
 
 def genFibNumV3(a, b, c, n, m):
     F = [[a, b, 1], [1, 0, 0], [0, 0, 1]]
-    r = power(F, n-2, a, b, c) % m
-    return r
+    power(F, n-2, a, b, c)
+    print(F)
+    return (F[0][0] + F[0][1] + c) % m
+    # return (F[0][0]*a + F[0][1]*b + c) % m
+    # return (F[0][0]*a + F[0][1]*b + F[0][2]*c) % m
+    # return (F[0][0]*a) % m
 
 
 class Solution:
